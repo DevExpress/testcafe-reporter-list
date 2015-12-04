@@ -1,7 +1,7 @@
 {
   "name": "testcafe-reporter-list",
   "version": "1.0.0",
-  "description": "list TestCafe reporter plugin.",
+  "description": "List TestCafe reporter plugin.",
   "repository": "https://github.com/DevExpress/testcafe-reporter-list",
   "author": {
     "name": "Developer Express Inc.",
@@ -17,7 +17,8 @@
   "keywords": [
     "testcafe",
     "reporter",
-    "plugin"
+    "plugin",
+    "list"
   ],
   "license": "MIT",
   "devDependencies": {
