@@ -41,6 +41,7 @@ export default function () {
                 title += ` (screenshots: ${this.chalk.underline(screenshotPath)})`;
 
             this.setIndent(2)
+                .useWordWrap(true)
                 .write(title);
 
             if (hasErr) {

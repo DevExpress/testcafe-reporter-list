@@ -19,6 +19,21 @@ function createReport (withColors) {
     plugin.chalk.enabled = !plugin.noColors && withColors;
     plugin.symbols       = { ok: '✓', err: '✖' };
 
+    // NOTE: disable errors coloring if we don't have custom
+    // error decorator. Default error colors may be prone to changing.
+    if (plugin.chalk.enabled && !pluginFactory().createErrorDecorator) {
+        var origFormatError = plugin.formatError;
+
+        plugin.formatError = function () {
+            plugin.chalk.enabled = false;
+
+            var result = origFormatError.apply(plugin, arguments);
+
+            plugin.chalk.enabled = true;
+
+            return result;
+        };
+    }
 
     testCalls.forEach(function (call) {
         plugin[call.method].apply(plugin, call.args);

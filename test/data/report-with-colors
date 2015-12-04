@@ -1,1 +1,57 @@
-TODO
+[1mRunning tests in: [94mChrome[39m, [94mFirefox[39m[22m
+
+  [32m✓[39m [90mfixture1 - fixture1test1[39m[33m (unstable)[39m (screenshots:
+  [4m/screenshots/1445437598847[24m)
+  [31m✖[39m [31mfixture1 - fixture1test2[39m (screenshots: [4m/screenshots/1445437598847[24m)
+
+      1) Chrome
+         Assertion failed at step "Step":
+
+             eq(["12345678901"], ["00000000000"])
+
+         Arrays differ at index 0:
+
+         Expected: [0]: "12345678901"
+         Actual:   [0]: "00000000000"
+                         ^
+
+         Screenshot: /screenshots/1445437598847/userAgent/1.Fail.png
+
+
+      2) Chrome
+         Assertion failed at step "Step":
+
+             notEq("test", "test")
+
+         Expected: not "test"
+         Actual:   "test"
+
+
+      3) Firefox
+         Assertion failed at step "Step":
+
+             ok(false)
+
+         Expected: not null, not undefined, not false, not NaN and not ''
+         Actual:   false
+
+
+  [32m✓[39m [90mfixture1 - fixture1test3[39m
+  [32m✓[39m [90mfixture2 - fixture2test1[39m
+  [32m✓[39m [90mfixture2 - fixture2test2[39m
+  [31m✖[39m [31mfixture3 - fixture3test1[39m[33m (unstable)[39m
+
+      1) Firefox
+         Assertion failed at step "Step":
+
+             eq(["12345678901"], ["00000000000"])
+
+         Arrays differ at index 0:
+
+         Expected: [0]: "12345678901"
+         Actual:   [0]: "00000000000"
+                         ^
+
+
+
+  [1m[31m2/6 failed[39m[22m[90m (15m 25s)[39m

@@ -1,7 +1,7 @@
 # testcafe-reporter-list
 [![Build Status](https://travis-ci.org/DevExpress/testcafe-reporter-list.svg)](https://travis-ci.org/DevExpress/testcafe-reporter-list)
 
-This is the **list** reporter plugin for [TestCafe](http://devexpress.github.io/testcafe).
+This is the **List** reporter plugin for [TestCafe](http://devexpress.github.io/testcafe).
 
 <p align="center">
     <img src="https://raw.github.com/DevExpress/testcafe-reporter-list/master/media/preview.png" alt="preview" />
