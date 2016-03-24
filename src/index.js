@@ -40,12 +40,12 @@ export default function () {
             if (screenshotPath)
                 title += ` (screenshots: ${this.chalk.underline(screenshotPath)})`;
 
-            this.setIndent(2)
+            this.setIndent(1)
                 .useWordWrap(true)
                 .write(title);
 
             if (hasErr) {
-                this.setIndent(6)
+                this.setIndent(3)
                     .newline();
 
                 errs.forEach((err, idx) => {
@@ -70,7 +70,7 @@ export default function () {
 
             footer += this.chalk.gray(` (${durationStr})`);
 
-            this.setIndent(2)
+            this.setIndent(1)
                 .useWordWrap(true);
 
             if (!this.afterErrList)

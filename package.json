@@ -1,6 +1,6 @@
 {
   "name": "testcafe-reporter-list",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "List TestCafe reporter plugin.",
   "repository": "https://github.com/DevExpress/testcafe-reporter-list",
   "author": {
@@ -32,6 +32,6 @@
     "os-family": "^1.0.0",
     "publish-please": "^1.0.1",
     "read-file-relative": "^1.2.0",
-    "testcafe": "0.0.7-alpha"
+    "testcafe": "0.0.15"
   }
 }
