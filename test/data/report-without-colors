@@ -1,56 +1,73 @@
-Running tests in: Chrome, Firefox
+Running tests in: Chrome 41.0.2227 / Mac OS X 10.10.1, Firefox 47 / Mac OS X
+10.10.1
 
- ✓ fixture1 - fixture1test1 (unstable) (screenshots:
+ ✓ First fixture - First test in first fixture (unstable) (screenshots:
  /screenshots/1445437598847)
- ✖ fixture1 - fixture1test2 (screenshots: /screenshots/1445437598847)
+ ✖ First fixture - Second test in first fixture (screenshots:
+ /screenshots/1445437598847)
 
-   1) Chrome
-      Assertion failed at step "Step":
+   1) Chrome 41.0.2227 / Mac OS X 10.10.1
+      Error on page "http://example.org":
 
-      eq(["12345678901"], ["00000000000"])
+      Some error
 
-      Arrays differ at index 0:
+         1 |var createCallsiteRecord = require('callsite-record');
+         2 |
+         3 |function someFunc () {
+       > 4 |    throw new Error('Hey ya!');
+         5 |}
+         6 |
+         7 |try {
+         8 |    someFunc();
+         9 |}
 
-      Expected: [0]: "12345678901"
-      Actual:   [0]: "00000000000"
-                      ^
+         at someFunc (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
 
-      Screenshot: /screenshots/1445437598847/userAgent/1.Fail.png
-
-
-   2) Chrome
-      Assertion failed at step "Step":
-
-      notEq("test", "test")
-
-      Expected: not "test"
-      Actual:   "test"
-
-
-   3) Firefox
-      Assertion failed at step "Step":
-
-      ok(false)
-
-      Expected: not null, not undefined, not false, not NaN and not ''
-      Actual:   false
+      Screenshot: /screenshots/1445437598847/errors
 
 
- ✓ fixture1 - fixture1test3
- ✓ fixture2 - fixture2test1
- ✓ fixture2 - fixture2test2
- ✖ fixture3 - fixture3test1 (unstable)
+   2) Firefox 47 / Mac OS X 10.10.1
+      The specified selector does not match any element in the DOM tree.
 
-   1) Firefox
-      Assertion failed at step "Step":
+         1 |var createCallsiteRecord = require('callsite-record');
+         2 |
+         3 |function someFunc () {
+       > 4 |    throw new Error('Hey ya!');
+         5 |}
+         6 |
+         7 |try {
+         8 |    someFunc();
+         9 |}
 
-      eq(["12345678901"], ["00000000000"])
+         at someFunc (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
 
-      Arrays differ at index 0:
 
-      Expected: [0]: "12345678901"
-      Actual:   [0]: "00000000000"
-                      ^
+ ✓ First fixture - Third test in first fixture
+ ✓ Second fixture - First test in second fixture
+ ✓ Second fixture - Second test in second fixture
+ ✖ Third fixture - First test in third fixture (unstable)
+
+   1) Firefox 47 / Mac OS X 10.10.1
+      - Error in beforeEach hook -
+      The specified selector does not match any element in the DOM tree.
+
+         1 |var createCallsiteRecord = require('callsite-record');
+         2 |
+         3 |function someFunc () {
+       > 4 |    throw new Error('Hey ya!');
+         5 |}
+         6 |
+         7 |try {
+         8 |    someFunc();
+         9 |}
+
+         at someFunc (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
 
 
 

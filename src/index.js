@@ -27,8 +27,8 @@ export default function () {
 
         reportTestDone (name, errs, durationMs, unstable, screenshotPath) {
             var hasErr    = !!errs.length;
-            var nameStyle = hasErr ? this.chalk.red : this.chalk.gray;
-            var symbol    = hasErr ? this.chalk.red(this.symbols.err) : this.chalk.green(this.symbols.ok);
+            var nameStyle = hasErr ? this.chalk.red.bold : this.chalk.gray;
+            var symbol    = hasErr ? this.chalk.red.bold(this.symbols.err) : this.chalk.green(this.symbols.ok);
 
             name = `${this.currentFixtureName} - ${name}`;
 
@@ -49,8 +49,10 @@ export default function () {
                     .newline();
 
                 errs.forEach((err, idx) => {
+                    var prefix = this.chalk.red(`${idx + 1}) `);
+
                     this.newline()
-                        .write(this.formatError(err, `${idx + 1}) `))
+                        .write(this.formatError(err, prefix))
                         .newline()
                         .newline();
                 });
