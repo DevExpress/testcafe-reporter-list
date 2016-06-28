@@ -1,6 +1,6 @@
 {
   "name": "testcafe-reporter-list",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "List TestCafe reporter plugin.",
   "repository": "https://github.com/DevExpress/testcafe-reporter-list",
   "author": {
@@ -12,7 +12,9 @@
     "lib"
   ],
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "publish-please": "publish-please",
+    "prepublish": "publish-please guard"
   },
   "keywords": [
     "testcafe",
@@ -30,8 +32,8 @@
     "gulp-mocha": "^2.2.0",
     "normalize-newline": "^1.0.2",
     "os-family": "^1.0.0",
-    "publish-please": "^1.0.1",
+    "publish-please": "^2.1.4",
     "read-file-relative": "^1.2.0",
-    "testcafe": "0.0.15"
+    "testcafe": "0.0.21"
   }
 }
