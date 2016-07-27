@@ -29,7 +29,7 @@ export default function () {
         },
 
         _renderErrors (errs) {
-            this.setIndent(2)
+            this.setIndent(3)
                 .newline();
 
             errs.forEach((err, idx) => {

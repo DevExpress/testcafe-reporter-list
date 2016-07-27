@@ -7,45 +7,45 @@
  ✖ First fixture - Second test in first fixture (screenshots:
  /screenshots/1445437598847)
 
-  1) Error on page "http://example.org":
+   1) Error on page "http://example.org":
 
-     Some error
+      Some error
 
-     Browser: Chrome 41.0.2227 / Mac OS X 10.10.1
-     Screenshot: /screenshots/1445437598847/errors
+      Browser: Chrome 41.0.2227 / Mac OS X 10.10.1
+      Screenshot: /screenshots/1445437598847/errors
 
-        1 |var createCallsiteRecord = require('callsite-record');
-        2 |
-        3 |function someFunc () {
-      > 4 |    throw new Error('Hey ya!');
-        5 |}
-        6 |
-        7 |try {
-        8 |    someFunc();
-        9 |}
+         1 |var createCallsiteRecord = require('callsite-record');
+         2 |
+         3 |function someFunc () {
+       > 4 |    throw new Error('Hey ya!');
+         5 |}
+         6 |
+         7 |try {
+         8 |    someFunc();
+         9 |}
 
-        at someFunc (some-file:1:1)
-        at Object.<anonymous> (some-file:1:1)
-        at Object.<anonymous> (some-file:1:1)
+         at someFunc (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
 
 
-  2) The specified selector does not match any element in the DOM tree.
+   2) The specified selector does not match any element in the DOM tree.
 
-     Browser: Firefox 47 / Mac OS X 10.10.1
+      Browser: Firefox 47 / Mac OS X 10.10.1
 
-        1 |var createCallsiteRecord = require('callsite-record');
-        2 |
-        3 |function someFunc () {
-      > 4 |    throw new Error('Hey ya!');
-        5 |}
-        6 |
-        7 |try {
-        8 |    someFunc();
-        9 |}
+         1 |var createCallsiteRecord = require('callsite-record');
+         2 |
+         3 |function someFunc () {
+       > 4 |    throw new Error('Hey ya!');
+         5 |}
+         6 |
+         7 |try {
+         8 |    someFunc();
+         9 |}
 
-        at someFunc (some-file:1:1)
-        at Object.<anonymous> (some-file:1:1)
-        at Object.<anonymous> (some-file:1:1)
+         at someFunc (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
 
 
  ✓ First fixture - Third test in first fixture
@@ -53,24 +53,24 @@
  ✓ Second fixture - Second test in second fixture
  ✖ Third fixture - First test in third fixture (unstable)
 
-  1) - Error in beforeEach hook -
-     The specified selector does not match any element in the DOM tree.
+   1) - Error in beforeEach hook -
+      The specified selector does not match any element in the DOM tree.
 
-     Browser: Firefox 47 / Mac OS X 10.10.1
+      Browser: Firefox 47 / Mac OS X 10.10.1
 
-        1 |var createCallsiteRecord = require('callsite-record');
-        2 |
-        3 |function someFunc () {
-      > 4 |    throw new Error('Hey ya!');
-        5 |}
-        6 |
-        7 |try {
-        8 |    someFunc();
-        9 |}
+         1 |var createCallsiteRecord = require('callsite-record');
+         2 |
+         3 |function someFunc () {
+       > 4 |    throw new Error('Hey ya!');
+         5 |}
+         6 |
+         7 |try {
+         8 |    someFunc();
+         9 |}
 
-        at someFunc (some-file:1:1)
-        at Object.<anonymous> (some-file:1:1)
-        at Object.<anonymous> (some-file:1:1)
+         at someFunc (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
+         at Object.<anonymous> (some-file:1:1)
 
 
 
