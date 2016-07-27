@@ -7,26 +7,43 @@ export default function () {
         testCount:          0,
 
         reportTaskStart (startTime, userAgents, testCount) {
-            var uaList = userAgents
-                .map(ua => this.chalk.blue(ua))
-                .join(', ');
-
             this.startTime = startTime;
             this.testCount = testCount;
 
-            this.setIndent(0)
+            this.setIndent(1)
                 .useWordWrap(true)
-                .write(this.chalk.bold(`Running tests in: ${uaList}`))
-                .newline()
+                .write(this.chalk.bold('Running tests in:'))
                 .newline();
+
+            userAgents.forEach(ua => {
+                this
+                    .write(`- ${this.chalk.blue(ua)}`)
+                    .newline();
+            });
+
+            this.newline();
         },
 
         reportFixtureStart (name) {
             this.currentFixtureName = name;
         },
 
-        reportTestDone (name, errs, durationMs, unstable, screenshotPath) {
-            var hasErr    = !!errs.length;
+        _renderErrors (errs) {
+            this.setIndent(2)
+                .newline();
+
+            errs.forEach((err, idx) => {
+                var prefix = this.chalk.red(`${idx + 1}) `);
+
+                this.newline()
+                    .write(this.formatError(err, prefix))
+                    .newline()
+                    .newline();
+            });
+        },
+
+        reportTestDone (name, testRunInfo) {
+            var hasErr    = !!testRunInfo.errs.length;
             var nameStyle = hasErr ? this.chalk.red.bold : this.chalk.gray;
             var symbol    = hasErr ? this.chalk.red.bold(this.symbols.err) : this.chalk.green(this.symbols.ok);
 
@@ -34,36 +51,41 @@ export default function () {
 
             var title = `${symbol} ${nameStyle(name)}`;
 
-            if (unstable)
+            if (testRunInfo.unstable)
                 title += this.chalk.yellow(' (unstable)');
 
-            if (screenshotPath)
-                title += ` (screenshots: ${this.chalk.underline(screenshotPath)})`;
+            if (testRunInfo.screenshotPath)
+                title += ` (screenshots: ${this.chalk.grey.underline(testRunInfo.screenshotPath)})`;
 
             this.setIndent(1)
                 .useWordWrap(true)
                 .write(title);
 
-            if (hasErr) {
-                this.setIndent(3)
-                    .newline();
-
-                errs.forEach((err, idx) => {
-                    var prefix = this.chalk.red(`${idx + 1}) `);
-
-                    this.newline()
-                        .write(this.formatError(err, prefix))
-                        .newline()
-                        .newline();
-                });
-            }
+            if (hasErr)
+                this._renderErrors(testRunInfo.errs);
 
             this.afterErrList = hasErr;
 
             this.newline();
         },
 
-        reportTaskDone (endTime, passed) {
+        _renderWarnings (warnings) {
+            this.newline()
+                .setIndent(1)
+                .write(this.chalk.bold.yellow(`Warnings (${warnings.length}):`))
+                .newline();
+
+            warnings.forEach(msg => {
+                this.setIndent(1)
+                    .write(this.chalk.bold.yellow(`--`))
+                    .newline()
+                    .setIndent(2)
+                    .write(msg)
+                    .newline();
+            });
+        },
+
+        reportTaskDone (endTime, passed, warnings) {
             var durationMs  = endTime - this.startTime;
             var durationStr = this.moment.duration(durationMs).format('h[h] mm[m] ss[s]');
             var footer      = passed === this.testCount ?
@@ -81,6 +103,9 @@ export default function () {
             this.newline()
                 .write(footer)
                 .newline();
+
+            if (warnings.length)
+                this._renderWarnings(warnings);
         }
     };
 }
