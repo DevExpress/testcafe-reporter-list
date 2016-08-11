@@ -10,7 +10,7 @@ This is the **List** reporter plugin for [TestCafe](http://devexpress.github.io/
 ## Install
 
 ```
-npm install -g testcafe-reporter-list
+npm install testcafe-reporter-list
 ```
 
 ## Usage
