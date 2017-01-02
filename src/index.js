@@ -5,6 +5,7 @@ export default function () {
         afterErrList:       false,
         currentFixtureName: null,
         testCount:          0,
+        skipped:            0,
 
         reportTaskStart (startTime, userAgents, testCount) {
             this.startTime = startTime;
@@ -48,6 +49,8 @@ export default function () {
             var nameStyle = null;
 
             if (testRunInfo.skipped) {
+                this.skipped++;
+
                 symbol    = this.chalk.cyan('-');
                 nameStyle = this.chalk.cyan;
             }
@@ -118,6 +121,11 @@ export default function () {
             this.newline()
                 .write(footer)
                 .newline();
+
+            if (this.skipped > 0) {
+                this.write(this.chalk.cyan(`${this.skipped} skipped`))
+                    .newline();
+            }
 
             if (warnings.length)
                 this._renderWarnings(warnings);
