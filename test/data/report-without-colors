@@ -51,6 +51,7 @@
  ✓ First fixture - Third test in first fixture
  ✓ Second fixture - First test in second fixture
  ✓ Second fixture - Second test in second fixture
+ - Second fixture - Third test in second fixture
  ✖ Third fixture - First test in third fixture (unstable)
 
    1) - Error in beforeEach hook -

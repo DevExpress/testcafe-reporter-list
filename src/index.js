@@ -44,8 +44,23 @@ export default function () {
 
         reportTestDone (name, testRunInfo) {
             var hasErr    = !!testRunInfo.errs.length;
-            var nameStyle = hasErr ? this.chalk.red.bold : this.chalk.gray;
-            var symbol    = hasErr ? this.chalk.red.bold(this.symbols.err) : this.chalk.green(this.symbols.ok);
+            var symbol    = null;
+            var nameStyle = null;
+
+            if (testRunInfo.skipped) {
+                symbol    = this.chalk.cyan('-');
+                nameStyle = this.chalk.cyan;
+            }
+
+            else if (hasErr) {
+                symbol    = this.chalk.red.bold(this.symbols.err);
+                nameStyle = this.chalk.red.bold;
+            }
+
+            else {
+                symbol    = this.chalk.green(this.symbols.ok);
+                nameStyle = this.chalk.grey;
+            }
 
             name = `${this.currentFixtureName} - ${name}`;
 
