@@ -55,6 +55,12 @@ gulp.task('preview-run', function (done) {
     done();
 });
 
+gulp.task('set-colors-force', function (done) {
+    process.env.FORCE_COLOR = '3';
+
+    done();
+});
+
 gulp.task('build', gulp.series('clean', 'lint', 'compile'));
-gulp.task('test', gulp.series('build', 'test-run'));
+gulp.task('test', gulp.series('build', 'set-colors-force', 'test-run'));
 gulp.task('preview', gulp.series('build', 'preview-run'));
